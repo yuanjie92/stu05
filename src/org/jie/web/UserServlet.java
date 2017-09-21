@@ -42,12 +42,38 @@ public class UserServlet extends HttpServlet {
 		if("register".equals(act)){
 			register(req,resp);
 		}
+		if("logout".equals(act)){
+			logout(req,resp);
+		}
 	}
 
-	private void register(HttpServletRequest req, HttpServletResponse resp) {
+	private void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		//清空session
+		req.getSession().invalidate();
+		//清空cookie
+		Cookie c = new Cookie("user", "");
+		c.setMaxAge(0);
+		resp.addCookie(c);
+		resp.sendRedirect("login.jsp");
+		return;
+	}
+
+	private void register(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String userName = req.getParameter("userName");
 		String userPwd = req.getParameter("userPwd");
+		if (null == userName || "".equals(userName)) {
+			req.setAttribute("errorMsg", "用户名不能为空");
+			req.getRequestDispatcher("register.jsp").forward(req, resp);
+			return;
+		}
+		if (null == userPwd || "".equals(userPwd)) {
+			req.setAttribute("errorMsg", "密码不能为空");
+			req.getRequestDispatcher("register.jsp").forward(req, resp);
+			return;
+		}
 		userService.add(userName,userPwd);
+		req.setAttribute("msg", "注册成功");
+		req.getRequestDispatcher("success.jsp").forward(req, resp);
 	}
 
 	private void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

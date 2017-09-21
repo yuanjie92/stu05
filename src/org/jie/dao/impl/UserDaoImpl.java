@@ -39,5 +39,26 @@ public class UserDaoImpl implements UserDao {
 		}
 		return user;
 	}
+
+	@Override
+	public boolean save(String userName, String userPwd) {
+		conn = DBUtils.getConn();
+		boolean flag = false;
+		String sql = "INSERT INTO tb_user (userName,userPwd) VALUES (?,?)";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, userName);
+			ps.setString(2, userPwd);
+			int rs = ps.executeUpdate();
+			if(rs > 0){
+				flag = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtils.close(conn, ps);
+		}
+		return flag;
+	}
 	
 }

@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void add(String userName, String userPwd) {
-//		userDao.save(userName)
+		userDao.save(userName,userPwd);
 	}
 	
 	

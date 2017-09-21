@@ -9,6 +9,7 @@
 <body>
 	<h1>user register</h1>
 	<hr>
+	<font color="red" size="3"> ${errorMsg }</font>
 	<form action="user" method="post">
 		<input type="hidden" name="act" value="register">
 		userName:<input type="text" name="userName"><br>

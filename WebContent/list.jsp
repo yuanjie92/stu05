@@ -11,7 +11,7 @@
 <body>
 	<h1>student list</h1>
 	<hr>
-	<a href="add.jsp">add student</a>
+	<a href="add.jsp">add student</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="user?act=logout">logout</a>
 	<hr>
 	<div><b>query</b></div>
 	name:<input type="text" name="queryName" value="${name }">&nbsp;&nbsp;

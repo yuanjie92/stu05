@@ -6,4 +6,6 @@ public interface UserDao {
 
 	User queryUserByUserName(String userName);
 
+	boolean save(String userName, String userPwd);
+
 }
