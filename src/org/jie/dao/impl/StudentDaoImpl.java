@@ -19,6 +19,7 @@ public class StudentDaoImpl implements StudentDao {
 	private Connection conn;
 	private PreparedStatement ps;
 	
+	@SuppressWarnings("resource")
 	@Override
 	public SearchResult<Student> queryStudentByNameAndGenderWithPagination(Pagination page, String name, int gender) {
 		conn = DBUtils.getConn();
