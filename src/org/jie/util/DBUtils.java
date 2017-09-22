@@ -14,9 +14,12 @@ public class DBUtils {
 	private static Connection conn;
 	
 	static {
+		//创建配置文件对象
 		pro = new Properties();
 		try {
+			//加载配置文件
 			pro.load(DBUtils.class.getClassLoader().getResourceAsStream("jdbc.properties"));
+			//获取驱动
 			Class.forName(pro.getProperty("jdbcName"));
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -27,6 +30,7 @@ public class DBUtils {
 	
 	public static Connection getConn(){
 		try {
+			//建立连接
 			conn = DriverManager.getConnection(pro.getProperty("dbUrl"),pro.getProperty("dbUserName"),pro.getProperty("dbPassword"));
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -34,6 +38,7 @@ public class DBUtils {
 		return conn;
 	}
 	
+	//释放资源（关闭资源）
 	public static void close(Connection conn, PreparedStatement ps, ResultSet rs){
 		if(rs != null){
 			try {

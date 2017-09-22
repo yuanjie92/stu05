@@ -4,10 +4,15 @@ import java.util.Date;
 
 public class Student {
 
+	// 学生姓名
 	private String name;
+	// 学生id
 	private Integer id;
+	// 学生班级
 	private String grade;
+	// 学生性别
 	private Integer gender;
+	// 学生生日
 	private Date birthday;
 
 	public String getName() {

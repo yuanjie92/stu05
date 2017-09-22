@@ -16,6 +16,7 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public SearchResult<Student> findStudentByNameAndGender(Pagination page, String name, int gender) {
+		//调用dao的查询方法，并且将结果返回
 		return studentDao.queryStudentByNameAndGenderWithPagination(page,name,gender);
 	}
 
@@ -31,18 +32,21 @@ public class StudentServiceImpl implements StudentService {
 		stu.setGender(Integer.parseInt(gender));
 		stu.setGrade(grade);
 		stu.setName(name);
+		//调用dao的添加方法
 		studentDao.saveStudent(stu);
 	}
 
 	@Override
 	public void deleteStudent(String id) {
 		int stuId = Integer.parseInt(id);
+		//调用dao的删除方法
 		studentDao.deleteStudentById(stuId);
 	}
 
 	@Override
 	public Student findStudentById(String id) {
 		int stuId = Integer.parseInt(id);
+		//调用dao的查询方法
 		return studentDao.queryStudentById(stuId);
 	}
 
@@ -59,6 +63,7 @@ public class StudentServiceImpl implements StudentService {
 		stu.setGrade(grade);
 		stu.setName(name);
 		stu.setId(Integer.parseInt(id));
+		//调用dao的修改方法
 		studentDao.updateStudentById(stu);
 	}
 	
