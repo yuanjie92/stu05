@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -20,7 +21,7 @@
 		grade:<input type="text" name="grade" value="${stu.grade }"><br>
 		gender:<input type="radio" name="gender" value="1" ${gender?'checked':'' }>男
 			<input type="radio" name="gender" value="0" ${!gender?'checked':'' }>女<br>
-		birthday:<input type="datetime" name="birthday" value="${stu.birthday }">
+		birthday:<input type="datetime" name="birthday" value="<fmt:formatDate value='${stu.birthday }' pattern='yyyy-MM-dd HH:mm:ss' />">
 		<input type="submit" vlaue="update">
 	</form>
 </body>
