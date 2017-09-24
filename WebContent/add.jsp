@@ -15,7 +15,7 @@
 		grade:<input type="text" name="grade"><br>
 		gender:<input type="radio" name="gender" value="1">男
 			<input type="radio" name="gender" value="0">女<br>
-		birthday:<input type="datetime" name="birthday">
+		birthday:<input type="datetime" name="birthday"><br>
 		<input type="submit" value="add">
 	</form>
 </body>

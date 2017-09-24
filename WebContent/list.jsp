@@ -41,8 +41,7 @@
 					<c:if test="${stu.gender==1 }">男</c:if>
 					<c:if test="${stu.gender==0 }">女</c:if>
 				</td>
-				
-				<td>${stu.birthday }</td>
+				<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${stu.birthday }"/></td>
 				<td>${stu.grade }</td>
 				<td><a href="student?act=showStu&id=${stu.id }">修改</a></td>
 				<td><a href="student?act=del&id=${stu.id }">删除</a></td>
