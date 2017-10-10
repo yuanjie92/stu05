@@ -5,6 +5,7 @@ public class User {
 	private Integer id;
 	private String userName;
 	private String userPwd;
+	private String resources;
 
 	public Integer getId() {
 		return id;
@@ -29,5 +30,15 @@ public class User {
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
 	}
+
+	public String getResources() {
+		return resources;
+	}
+
+	public void setResources(String resources) {
+		this.resources = resources;
+	}
+	
+	
 
 }

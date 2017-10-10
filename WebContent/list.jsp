@@ -12,7 +12,7 @@
 <body>
 	<h1>student list</h1>
 	<hr>
-	<a href="add.jsp">add student</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="user?act=logout">logout</a>
+	<a href="add">add student</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="user?act=logout">logout</a>
 	<hr>
 	<div><b>query</b></div>
 	name:<input type="text" name="queryName" value="${name }">&nbsp;&nbsp;
@@ -43,8 +43,8 @@
 				</td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${stu.birthday }"/></td>
 				<td>${stu.grade }</td>
-				<td><a href="student?act=showStu&id=${stu.id }">修改</a></td>
-				<td><a href="student?act=del&id=${stu.id }">删除</a></td>
+				<td><a href="update?act=showStu&id=${stu.id }">修改</a></td>
+				<td><a href="del?act=del&id=${stu.id }">删除</a></td>
 			</tr>
 		</c:forEach>
 		</tbody>	
