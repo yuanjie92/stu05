@@ -50,6 +50,15 @@
 		<servlet-name>UpdateServlet</servlet-name>
 		<servlet-class>org.jie.web.UpdateServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>VerifyCodeServlet</servlet-name>
+		<servlet-class>org.jie.web.VerifyCodeServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>VerifyCodeServlet</servlet-name>
+		<url-pattern>/verifyCode</url-pattern>
+	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>UpdateServlet</servlet-name>

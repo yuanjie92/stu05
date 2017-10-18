@@ -30,7 +30,8 @@ public class LoginFilter implements Filter {
 		String uri = req.getRequestURI();
 		if ((uri.contains("user") && "login".equals(req.getParameter("act")))
 				|| (uri.contains("user") && "logout".equals(req.getParameter("act")))
-				|| (uri.contains("user") && "register".equals(req.getParameter("act"))) || uri.contains("login")) {
+				|| (uri.contains("user") && "register".equals(req.getParameter("act"))) || uri.contains("login")
+				|| uri.contains("verifyCode")) {
 			chain.doFilter(req, resp);
 		} else {
 			HttpSession session = req.getSession();

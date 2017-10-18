@@ -79,6 +79,13 @@ public class UserServlet extends HttpServlet {
 	private void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String userName = req.getParameter("userName");
 		String userPwd = req.getParameter("userPwd");
+		String verifyCode = req.getParameter("verifyCode");
+		String verify = (String) req.getSession().getAttribute("verifyCode");
+		if(!verifyCode.equals(verify)){
+			req.setAttribute("errorMsg", "验证码输入错误!!!");
+			req.getRequestDispatcher("login.jsp").forward(req, resp);
+			return;
+		}
 		String remember = req.getParameter("remember");
 		if (null == userName || "".equals(userName)) {
 			req.setAttribute("errorMsg", "用户名不能为空");
